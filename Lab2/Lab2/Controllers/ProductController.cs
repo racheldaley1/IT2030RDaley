@@ -37,5 +37,6 @@ namespace MVC_Lab2.Controllers
 
             return message;
         }
+
     }
 }
