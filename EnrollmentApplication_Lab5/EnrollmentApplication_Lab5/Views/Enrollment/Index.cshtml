@@ -1,10 +1,10 @@
-﻿@model IEnumerable<EnrollmentApplication.Models.Enrollment>
+﻿@model IEnumerable<EnrollmentApplication_Lab5.Models.Enrollment>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Enrollments</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -46,9 +46,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Student.LastName)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Student.FirstName)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Grade)
         </td>

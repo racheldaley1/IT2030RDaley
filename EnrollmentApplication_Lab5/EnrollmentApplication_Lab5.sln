@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentApplication_Lab5", "EnrollmentApplication_Lab5\EnrollmentApplication_Lab5.csproj", "{2919D5A3-1955-43F4-BEC8-7A8B7A5306CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2919D5A3-1955-43F4-BEC8-7A8B7A5306CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2919D5A3-1955-43F4-BEC8-7A8B7A5306CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2919D5A3-1955-43F4-BEC8-7A8B7A5306CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2919D5A3-1955-43F4-BEC8-7A8B7A5306CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {836F7158-67A2-4DB0-963B-069F8E88BBD6}
+	EndGlobalSection
+EndGlobal

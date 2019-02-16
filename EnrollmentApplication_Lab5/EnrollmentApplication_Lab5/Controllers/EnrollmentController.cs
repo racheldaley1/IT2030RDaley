@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using EnrollmentApplication.Models;
+using EnrollmentApplication_Lab5.Models;
 
-namespace EnrollmentApplication.Controllers
+namespace EnrollmentApplication_Lab5.Controllers
 {
     public class EnrollmentController : Controller
     {
@@ -59,7 +59,7 @@ namespace EnrollmentApplication.Controllers
             }
 
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Title", enrollment.CourseId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName" , enrollment.StudentId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -76,7 +76,7 @@ namespace EnrollmentApplication.Controllers
                 return HttpNotFound();
             }
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Title", enrollment.CourseId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName" , enrollment.StudentId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName", enrollment.StudentId);
             return View(enrollment);
         }
 
@@ -94,7 +94,7 @@ namespace EnrollmentApplication.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CourseId = new SelectList(db.Courses, "CourseId", "Title", enrollment.CourseId);
-            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName" , enrollment.StudentId);
+            ViewBag.StudentId = new SelectList(db.Students, "StudentId", "LastName", "FirstName", enrollment.StudentId);
             return View(enrollment);
         }
 

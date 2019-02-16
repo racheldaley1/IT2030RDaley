@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EnrollmentApplication.Models
+namespace EnrollmentApplication_Lab5.Models
 {
     public class Enrollment
     {

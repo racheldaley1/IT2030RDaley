@@ -26,6 +26,12 @@
         <th>
             @Html.DisplayNameFor(model => model.AlbumArtUrl)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryofOrigin)
+        </th>
         <th></th>
     </tr>
 
@@ -47,9 +53,15 @@
             @Html.DisplayFor(modelItem => item.AlbumArtUrl)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AlbumId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AlbumId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AlbumId })
+            @Html.DisplayFor(modelItem => item.InStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryofOrigin)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
         </td>
     </tr>
 }
