@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using EnrollmentApplication_Lab5.Models;
 
 namespace EnrollmentApplication_Lab5
 {
@@ -12,6 +14,8 @@ namespace EnrollmentApplication_Lab5
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(
+                new DropCreateDatabaseIfModelChanges<EnrollmentDB>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

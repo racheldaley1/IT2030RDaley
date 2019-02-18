@@ -17,5 +17,6 @@ namespace EnrollmentApplication_Lab5.Models
         public virtual string AssignedCampus { get; set; }
         public virtual string EnrollmentSemester { get; set; }
         public virtual int EnrollmentYear { get; set; }
+        public virtual int TestNum { get; set; }
     }
 }

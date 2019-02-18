@@ -137,35 +137,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902091747334_InitialCreate.cs" />
-    <Compile Include="Migrations\201902091747334_InitialCreate.Designer.cs">
-      <DependentUpon>201902091747334_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171647116_Initial.cs" />
-    <Compile Include="Migrations\201902171647116_Initial.Designer.cs">
-      <DependentUpon>201902171647116_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171708090_IsActive.cs" />
-    <Compile Include="Migrations\201902171708090_IsActive.Designer.cs">
-      <DependentUpon>201902171708090_IsActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171709503_AssignedCampus.cs" />
-    <Compile Include="Migrations\201902171709503_AssignedCampus.Designer.cs">
-      <DependentUpon>201902171709503_AssignedCampus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171710553_EnrollmentSemester.cs" />
-    <Compile Include="Migrations\201902171710553_EnrollmentSemester.Designer.cs">
-      <DependentUpon>201902171710553_EnrollmentSemester.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171711173_EnrollmentYear.cs" />
-    <Compile Include="Migrations\201902171711173_EnrollmentYear.Designer.cs">
-      <DependentUpon>201902171711173_EnrollmentYear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\EnrollmentDB.cs" />
-    <Compile Include="Models\SampleData.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,26 +200,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902091747334_InitialCreate.resx">
-      <DependentUpon>201902091747334_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171647116_Initial.resx">
-      <DependentUpon>201902171647116_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171708090_IsActive.resx">
-      <DependentUpon>201902171708090_IsActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171709503_AssignedCampus.resx">
-      <DependentUpon>201902171709503_AssignedCampus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171710553_EnrollmentSemester.resx">
-      <DependentUpon>201902171710553_EnrollmentSemester.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171711173_EnrollmentYear.resx">
-      <DependentUpon>201902171711173_EnrollmentYear.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
