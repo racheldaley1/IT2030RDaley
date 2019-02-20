@@ -20,7 +20,7 @@ namespace EnrollmentApplication.Models
         public virtual string Description { get; set; }
 
         [Required(ErrorMessage = "A number of credits is required")]
-        [Range(1,4, ErrorMessage = "Course Credits must be a value beyween 1-4")]
+        [Range(1,4, ErrorMessage = "Course Credits must be a value between 1-4")]
         [Display(Name = "Number of credits")]
         public virtual int Credits { get; set; }
     }
