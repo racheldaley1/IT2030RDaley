@@ -20,5 +20,9 @@ namespace EnrollmentApplication.Models
         [StringLength(50, ErrorMessage = "First name cannot be more than 50 characters")]
         [Display(Name = "First Name")]
         public virtual string FirstName { get; set; }
+
+        //[MinimumAge(20)]
+        [MinimumAge(20)]
+        public virtual int Age { get; set; }
     }
 }
