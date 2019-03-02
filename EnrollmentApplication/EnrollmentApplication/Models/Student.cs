@@ -41,13 +41,13 @@ namespace EnrollmentApplication.Models
             }
 
             if(State != null &&
-                State.Length > 2 || State.Length < 2)
+                State.Length != 2)
             {
                 yield return (new ValidationResult("Enter a 2 digit State code", new[] { "State" }));
             }
 
             if(Zipcode != null &&
-                Zipcode.Length > 5 || Zipcode.Length < 5)
+                Zipcode.Length != 5)
             {
                 yield return (new ValidationResult("Enter a 5 digit Zipcode", new[] { "Zipcode" }));
             }
