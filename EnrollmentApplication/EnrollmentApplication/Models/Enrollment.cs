@@ -32,5 +32,9 @@ namespace EnrollmentApplication.Models
         [Range (2018, 2050, ErrorMessage = "You must enter a year of 2018 or later")]
         [Display(Name = "Enrollment Year")]
         public virtual int EnrollmentYear { get; set; }
+
+        [InvalidChars("*")]
+        //[InvalidChars("*", ErrorMessage = "Notes cannot have invalid characters")]
+        public virtual string Notes { get; set; }
     }
 }
