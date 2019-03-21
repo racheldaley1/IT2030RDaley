@@ -6,6 +6,43 @@
 
 <h2>Index</h2>
 
+<div id="dailydeal">
+    @Ajax.ActionLink("Click here to see today's special!",
+    "DailyDeal",
+    null,
+    new AjaxOptions
+    {
+    UpdateTargetId = "dailydeal",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET"
+    },
+    new {@class = "btn btn-primary"})
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Artist search</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("ArtistSearch", "StoreManager",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+        }))
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -35,35 +72,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artist.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AlbumArtUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InStock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountryofOrigin)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumArtUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryofOrigin)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/Apps/MusicScripts.js"></script>
+}
