@@ -33,8 +33,8 @@ namespace EnrollmentApplication.Models
         [Display(Name = "Enrollment Year")]
         public virtual int EnrollmentYear { get; set; }
 
-        [InvalidChars("*")]
-        //[InvalidChars("*", ErrorMessage = "Notes cannot have invalid characters")]
+        //[InvalidChars("*")]
+        [InvalidChars("*", ErrorMessage = "Notes cannot have invalid characters")]
         public virtual string Notes { get; set; }
     }
 }
