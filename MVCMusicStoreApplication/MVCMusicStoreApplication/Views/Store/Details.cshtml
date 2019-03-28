@@ -4,49 +4,16 @@
 }
 
 <h2>Details</h2>
-<div>
-    <h4>Album</h4>
+<p id="content">Content Body</p>
+<p id="italics">Details</p>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    <p id="italics">@Html.DisplayFor(model => model.Title)</p>
+    <img src="@Html.DisplayFor(model => model.AlbumArtUrl)" />
+    <br />
+    <p id="details">Artist: <span id="bold">@Html.DisplayFor(model => model.Artist.Name)</span></p>
+        
+    <p id="details">Price: <span id="bold">@Html.DisplayFor(model => model.Price)</span></p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AlbumArtUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AlbumArtUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Artist.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Artist.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genre.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genre.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-    </dl>
-</div>
+<button id="btn">
+    @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart", new {id = Model.AlbumId}, null)
+</button>

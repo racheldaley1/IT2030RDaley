@@ -325,3 +325,28 @@ tr:hover
 {
 	background-color: #fff;
 }
+
+#italics {
+    font-style: italic;
+    font-weight: bold;
+    color: #5e5b54;
+    margin-top: 1em;
+}
+
+#content {
+    margin-top: 2em;
+}
+
+#details {
+    font-style: italic;
+}
+
+#bold {
+    font-weight:bold;
+    font-style:normal;
+}
+
+#btn {
+    color: white;
+    background-color: dimgray;
+}

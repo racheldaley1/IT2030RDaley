@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<MVCMusicStoreApplication.Models.Genre>
 @{
     ViewBag.Title = "Browse";
-}
-
-<h2>Browse</h2>
-<p>Browse by Genre</p>
+}<h2>Browse</h2>
+<p id="content">Content Body</p>
+<p id="italics">Browse by Genre</p>
 <ul id="browse">
     @foreach (var genre in Model)
     {

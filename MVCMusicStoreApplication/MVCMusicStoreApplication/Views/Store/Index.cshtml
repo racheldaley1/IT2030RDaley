@@ -4,13 +4,14 @@
 }
 
 <h2>Index</h2>
-
-<p>Here are the list of albums </p>
-<ul id="index">
-    @foreach (var album in Model)
-    {
-        <li>
-            @Html.ActionLink(album.Title, "Details", "Store", new { id = album.AlbumId }, null)
-        </li>
-    }
-</ul>
+<p id="content">Content Body</p>
+<p id="italics">Here are the list of albums</p>
+    <ul id="index">
+        @foreach (var album in Model)
+        {
+            <li>
+                @Html.ActionLink(album.Title, "Details", "Store", new { id = album.AlbumId }, null)
+            </li>
+        }
+    </ul>
+@Html.ActionLink("Back to Browse","Browse", "Store", null)

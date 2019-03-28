@@ -18,17 +18,9 @@ namespace MVCMusicStoreApplication.Controllers
             return View(db.Genres.ToList());
         }
         // GET: Details
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Album album = db.Albums.Find(id);
-            if (album == null)
-            {
-                return HttpNotFound();
-            }
             return View(album);
         }
         // GET: Album
