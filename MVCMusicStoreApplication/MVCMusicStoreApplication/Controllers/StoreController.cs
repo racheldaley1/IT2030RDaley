@@ -13,17 +13,20 @@ namespace MVCMusicStoreApplication.Controllers
         private MVCMusicStoreDB db = new MVCMusicStoreDB();
 
         // GET: Browse
+        [HttpGet]
         public ActionResult Browse()
         {
             return View(db.Genres.ToList());
         }
         // GET: Details
+        [HttpGet]
         public ActionResult Details(int id)
         {
             Album album = db.Albums.Find(id);
             return View(album);
         }
         // GET: Album
+        [HttpGet]
         public ActionResult Index(int id)
         {
             var index = db.Albums
