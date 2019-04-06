@@ -1,0 +1,46 @@
+﻿@model MVCMusicStoreApplication.Models.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+@section Scripts {
+    <script src="~/Scripts/Apps/MusicScripts.js"></script>
+}
+
+<h2>Here's your shopping cart</h2>
+
+<br />
+
+<div id="update-message"></div>
+
+<div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.CartItems)
+        {
+            <tr id="record-@item.RecordId">
+                <td>@item.AlbumSelected.Title</td>
+                <td>@item.AlbumSelected.Price</td>
+                <td id="item-count-@item.RecordId">@item.Count</td>
+                <td><a href="#" data-id="@item.RecordId" class="RemoveLink">Remove</a></td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="2">Cart Total: </td>
+            <td id="cart-total">@Model.CartTotal</td>
+            <td></td>
+        </tr>
+    </table>
+    <p class="button">
+        @Html.ActionLink("Back to Browse", "Browse", "Store")
+    </p>
+</div>
+

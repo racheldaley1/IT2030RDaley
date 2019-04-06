@@ -1,8 +1,7 @@
-﻿*
-{
-	margin: 0px;
-	padding: 0px;
-	border: none;
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
 }
 
 body
@@ -10,7 +9,7 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	background-color: #FBF9EF;
-	padding: 0px 6%;
+	padding: 10px 6%;
 }
 
 #container
@@ -30,7 +29,7 @@ body
 {
 	font-size: 18px;
 	float: left;
-	background: url(/content/Images/logo.png) no-repeat;
+	background: url.(/content/Images/logo.png) no-repeat;
 	padding: 45px 0px 5px 0px;
 }
 
@@ -38,7 +37,7 @@ body
 {
 	height: 300px; 
 	width: 700px; 
-	background: url(/content/Images/home-showcase.png) no-repeat;
+	background: url.(/content/Images/home-showcase.png) no-repeat;
 }
 
 ul li a
@@ -324,25 +323,4 @@ th, td
 tr:hover
 {
 	background-color: #fff;
-}
-
-#italics {
-    font-style: italic;
-    font-weight: bold;
-    color: #5e5b54;
-    margin-top: 2em;
-}
-
-#details {
-    font-style: italic;
-}
-
-#bold {
-    font-weight:bold;
-    font-style:normal;
-}
-
-#btn {
-    color: white;
-    background-color: dimgray;
 }
