@@ -125,7 +125,7 @@ namespace MovieStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(movie).State = EntityState.Modified;
+                db.SetModified(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

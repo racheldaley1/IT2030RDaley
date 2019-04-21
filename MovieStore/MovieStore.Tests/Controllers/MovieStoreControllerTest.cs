@@ -235,10 +235,16 @@
         {
             Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
             Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
-            mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
+           
             Movie movie = new Movie { MovieId = 2, Title = "Movie 2" };
+
+            mockSet.Setup(m => m.Find(It.IsAny<Object>())).Returns(movie);
+
+            mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
             // Arrange
             MoviesController controller = new MoviesController(mockContext.Object);
+
+            controller.ModelState.Clear();
 
             //Act
             RedirectToRouteResult result = controller.Create(movie) as RedirectToRouteResult;
@@ -249,22 +255,24 @@
         }
 
        [TestMethod]
-       public void MovieStore_Create_ReturnView()
+       public void MovieStore_Create_IsNull()
         {
         Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
         Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
 
-        Movie movie = new Movie { MovieId = 2, Title = "Movie 2"};
+           
         //Step 4
         mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
 
         // Arrange
          MoviesController controller = new MoviesController(mockContext.Object);
 
-        //Act
-         ViewResult result = controller.Create(movie) as ViewResult;
+        Movie movie = null;
+        controller.ModelState.AddModelError("test", "test");
+            //Act
+        ViewResult result = controller.Create(movie) as ViewResult;
          //Assert
-         Assert.IsNotNull(movie);
+         Assert.IsNotNull(result);
         }
 
 
@@ -371,63 +379,67 @@
             Assert.AreEqual(expected: HttpStatusCode.NotFound, actual: (HttpStatusCode)result.StatusCode);
         }
 
+        [TestMethod]
+        public void MovieStore_Edit_Post_ModelStateValidRedirect()
+        {
+            //Goal: Query from our own list instead of the database
+        //Step 1
+            //var list = new List<Movie>
+            //{
+                //new Movie() { MovieId = 1, Title = "Movie 1"},
+                //new Movie() {MovieId = 2, Title = "Movie 2"},
+           // }.AsQueryable();
 
-        //Unsure how to approach edit post method, tried several different options. 
-        // Below is the most recent code I tried
-        //[TestMethod]
-        //public void MovieStore_Edit_Post_ModelStateValidRedirect()
-        //{
-        //    //Goal: Query from our own list instead of the database
-        //    //Step 1
-        //    var list = new List<Movie>
-        //    {
-        //        new Movie() { MovieId = 1, Title = "Movie 1"},
-        //        new Movie() {MovieId = 2, Title = "Movie 2"},
-        //    }.AsQueryable();
+            //Step 2
+            Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
+            Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
 
-        //    //Step 2
-        //    Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
-        //    Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
+            //Step 3
+            //mockSet.As<IQueryable<Movie>>().Setup(m => m.GetEnumerator()).Returns(list.GetEnumerator());
+            //mockSet.As<IQueryable<Movie>>().Setup(m => m.Provider).Returns(list.Provider);
+            //mockSet.As<IQueryable<Movie>>().Setup(m => m.ElementType).Returns(list.ElementType);
+            //mockSet.Setup(m => m.Find(It.IsAny<Object>())).Returns(list.First());
 
-        //    //Step 3
-        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.GetEnumerator()).Returns(list.GetEnumerator());
-        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.Provider).Returns(list.Provider);
-        //    mockSet.As<IQueryable<Movie>>().Setup(m => m.ElementType).Returns(list.ElementType);
-        //    mockSet.Setup(m => m.Find(It.IsAny<Object>())).Returns(list.First());
+            //    //Step 4
+            Movie movie = new Movie { MovieId = 2, Title = "Movie 2" };
+            mockSet.Setup(m => m.Find(It.IsAny<Object>())).Returns(movie);
 
-        //    //Step 4
-        //    mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
-        //    Movie movie = new Movie { MovieId = 2, Title = "Movie 2" };
-        //    // Arrange
-        //    MoviesController controller = new MoviesController(mockContext.Object);
+            mockContext.Setup(db => db.SetModified(It.IsAny<Movie>()));
 
-        //    //Act
-        //    RedirectToRouteResult result = controller.Edit(movie) as RedirectToRouteResult;
+            //mockContext.Setup(db => db.SetModified(It.IsAny()));
 
-        //    //Assert
-        //    Assert.IsNotNull(result);
-        //    Assert.AreEqual(expected: "Index", actual: result.RouteValues["action"]);
-        //}
 
-//Unsure how to approach edit post method, tried several different options. 
- // Below is the most recent code I tried. 
+            mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
+            //    // Arrange
+            MoviesController controller = new MoviesController(mockContext.Object);
 
-// I tried creating the code similar to the create unit test I have above but it created an error
-// Message: Test method MovieStore.Tests.Controllers.MovieStoreControllerTest.MovieStore_Edit_Post_ReturnView threw exception: 
-//System.InvalidOperationException: No connection string named 'MovieStoreDbContext' could be found in the application config file.
+            controller.ModelState.Clear();
+
+         //Act
+            RedirectToRouteResult result = controller.Edit(movie) as RedirectToRouteResult;
+
+        //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected: "Index", actual: result.RouteValues["action"]);
+        }
         
-    //[TestMethod]
-    //    public void MovieStore_Edit_Post_ReturnView()
-    //    {
-    //        Movie movie = new Movie { MovieId = 3, Title = "Movie 3" };
-    //        //// Arrange
-    //        MoviesController controller = new MoviesController();
+    [TestMethod]
+        public void MovieStore_Edit_Post_ModelIsNull()
+       {
+            Mock<MovieStoreDbContext> mockContext = new Mock<MovieStoreDbContext>();
+            Mock<DbSet<Movie>> mockSet = new Mock<DbSet<Movie>>();
+            mockContext.Setup(db => db.Movies).Returns(mockSet.Object);
 
-    //        ////Act
-    //        ViewResult result = controller.Edit(movie) as ViewResult;
-    //        ////Assert
-    //        Assert.IsNotNull(movie);
-    //    }
+            MoviesController controller = new MoviesController(mockContext.Object);
+
+            Movie movie = null;
+
+            controller.ModelState.AddModelError("test", "test");
+            //Act
+            ViewResult result = controller.Edit(movie) as ViewResult;
+           ////Assert
+            Assert.IsNotNull(result);
+       }
 
         [TestMethod]
         public void MovieStore_Delete_Get_Success()

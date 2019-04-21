@@ -16,6 +16,7 @@ namespace EnrollmentApplication.Models
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            //foreach (var item in Model) { }
             if (value != null)
             {
                 if ((string)value == invalidChars)

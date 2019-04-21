@@ -19,6 +19,11 @@ namespace MovieStore.Models
         {
         }
 
+        public virtual void SetModified(Movie movie)
+        {
+            Entry(movie).State = EntityState.Modified;
+        }
+
         public virtual System.Data.Entity.DbSet<MovieStore.Models.Movie> Movies { get; set; }
     }
 }
