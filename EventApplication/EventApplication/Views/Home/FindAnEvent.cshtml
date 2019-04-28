@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "FindAnEvent";
+}
+
+<h2>Find An Event</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Find An Event</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("FindEvent", "Home",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+        }))
+        {
+            <input type="text" name="t" />
+            <input type="text" name="l" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>
+

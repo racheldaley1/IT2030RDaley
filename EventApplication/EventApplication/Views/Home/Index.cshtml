@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Find An Event</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("FindEvent", "Home",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+        }))
+        {
+            <input type="text" name="t" />
+            <input type="text" name="l" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>
+
+<div id="lastminutedeals">
+    @Ajax.ActionLink("Click here to see Last Minute Deals",
+    "LastMinuteDeals",
+    null,
+    new AjaxOptions
+    {
+    UpdateTargetId = "lastminutedeals",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET"
+    },
+    new {@class = "btn btn-primary"})
+</div>
+
+
+@section Scripts {
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/Apps/EventScripts.js"></script>
+}
