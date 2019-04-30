@@ -20,11 +20,17 @@ namespace EventApplication.Controllers
             return PartialView("_FindEvent", events);
         }
 
-        private List<Event> GetEvents(string searchString, string searchString2)
+        private List<Event> GetEvents(string searchstring, string locationsearch)
         {
-                return db.Events
-                    .Where(a => a.Title.Contains(searchString) || a.EventType.Type.Contains(searchString) || a.LocationCity.Contains(searchString2) || a.LocationState.Contains(searchString2))
-                    .ToList();
+                return db.Events.Where(a =>
+
+                    (a.Title.Contains(searchstring) || a.EventType.Type.Contains(searchstring))
+
+                    &&
+
+                    (a.LocationCity.Contains(locationsearch) || a.LocationState.Contains(locationsearch))
+
+                     ).OrderBy(b => b.StartDate).ToList();
         }
 
         public ActionResult LastMinuteDeals()

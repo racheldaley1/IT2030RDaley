@@ -21,8 +21,8 @@
             UpdateTargetId = "searchresults",
         }))
         {
-            <input type="text" name="t" />
-            <input type="text" name="l" />
+            <input type="text" name="t" placeholder="Event or Event Type" />
+            <input type="text" name="l" placeholder="Location, City, or State" />
             <input type="submit" value="search" />
             <img id="ajax-loader"
                  src="@Url.Content("~/Content/Images/ajax-loader.gif")"
@@ -47,7 +47,7 @@
 
 
 @section Scripts {
-
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/Apps/EventScripts.js"></script>
 }

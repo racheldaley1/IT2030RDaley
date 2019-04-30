@@ -1,0 +1,42 @@
+﻿@model EventApplication.Models.TicketsOrderedViewModel
+@{
+    ViewBag.Title = "Tickets Ordered";
+}
+
+@section Scripts {
+
+    <script src="~/Scripts/Apps/EventScripts.js"></script>
+}
+
+<h2>Ticket Orders</h2>
+
+<br/>
+
+<div id="update-message"></div>
+
+<div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Date Ordered</th>
+            <th>Number of Tickets</th>
+            <th>Order Status</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.OrderItems)
+        {
+        <tr id="record-@item.RecordId">
+            <td>@item.EventSelected.Title</td>
+            <td>@item.DateCreated</td>
+            <td id="item-count-@item.RecordId">@item.TicketCount</td>
+            <td id="item-count-@item.RecordId">@item.OrderStatus</td>
+            <td><a href="#" data-id="@item.RecordId" class="RemoveLink">Cancel</a></td>
+        </tr>
+        }
+    </table>
+    <p class="button">
+        @Html.ActionLink("Back to Browse", "Index", "Event")
+    </p>
+</div>
+

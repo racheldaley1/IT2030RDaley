@@ -1,0 +1,15 @@
+﻿@model EventApplication.Models.Order
+@{
+    ViewBag.Title = "OrderSummary";
+}
+
+<h2>Order Summary</h2>
+<p id="italics">@Html.DisplayFor(model => model.OrderNumber)</p>
+<p id="italics">@Html.DisplayFor(model => model.EventSelected.Title)</p>
+<br />
+<p id="details">Number of Tickets: <span id="bold">@Html.DisplayFor(model => model.TicketCount)</span></p>
+
+<button id="btn">
+    @Html.ActionLink("Checkout", "Index", "TicketsOrdered")
+</button>
+
