@@ -13,9 +13,8 @@ namespace EventApplication.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            var events = db.Events.Where(a => a.EventId.Equals(id)).ToList();
-
-            return View(events.ToList());
+            Order events = db.Orders.Find(id);
+            return View(events);
 
             //Event events = db.Events.Find(id);
             //return View(events);
