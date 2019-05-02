@@ -60,17 +60,19 @@ namespace EventApplication.Models
         public void AddToOrder(int eventId)
         {
             //TODO: Verify that the Album Id exists in the database.
-            Order orderItem = db.Orders.SingleOrDefault(c => c.OrderId == this.TicketsOrderedId && c.EventId == eventId);
+            Order orderItem = db.Orders.SingleOrDefault(c => c.OrderId == TicketsOrderedId && c.EventId == eventId);
 
             if (orderItem == null)
             {
+                Event order = db.Events.SingleOrDefault(a => a.EventId == eventId);
                 Random random = new Random();
                 int randomOrderId = random.Next(1, 999999);
                 // Item is not in cart; add new cart item
                 orderItem = new Order()
                 {
-                    OrderId = this.TicketsOrderedId,
+                    OrderId = TicketsOrderedId,
                     EventId = eventId,
+                    EventSelected = order,
                     TicketCount = 1,
                     DateCreated = DateTime.Now,
                     OrderStatus = "Processed",

@@ -7,19 +7,17 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-}
-@using (Html.BeginForm("AddToOrder", "TicketsOrdered", FormMethod.Get))
-{
-   
+} 
     <h2>Register</h2>
     <p id="italics">Register</p>
-
+@using (Html.BeginForm("AddToOrder", "TicketsOrdered", FormMethod.Get))
+{
     <hr />
     <div>
         Sale ends on
-        @Html.DisplayFor(model => model.EventSelected.StartDate)
+        @Html.DisplayNameFor(model => model.EventSelected.StartDate)
     </div>
-    <p id="italics">@Html.DisplayFor(model => model.EventSelected.Title)</p>
+    <p id="italics">@Html.DisplayNameFor(model => model.EventSelected.Title)</p>
     <p>FREE</p>
     <br />
 
@@ -27,7 +25,8 @@
 
     @Html.DisplayNameFor(model => model.TicketCount)
     @Html.DropDownListFor(m => m.TicketCount, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
-    <div>
-        <input type="submit" class="btn-primary btn" value="Checkout" />
-    </div>
+    @Html.ActionLink("Checkout", "AddToOrder", "TicketsOrdered", new { id = Model.EventId }, null)
+
 }
+   
+

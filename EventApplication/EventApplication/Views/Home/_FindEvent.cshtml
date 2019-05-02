@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<EventApplication.Models.Event>
-
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/Apps/EventScripts.js"></script>
+}
 <div id="searchresults">
     <table>
         <tr>
@@ -8,16 +11,16 @@
             <th>City</th>
             <th>State</th>
         </tr>
-        
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(item.Title, "Details", "Event", new { id = item.EventId }, null)</td>
-                    <td>@item.StartDate.ToShortDateString()</td>
-                    <td>@item.LocationCity</td>
-                    <td>@item.LocationState</td>
-                </tr>
-            }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Title, "Details", "Event", new { id = item.EventId }, null)</td>
+                <td>@item.StartDate.ToShortDateString()</td>
+                <td>@item.LocationCity</td>
+                <td>@item.LocationState</td>
+            </tr>
+        }
     </table>
 </div>
 

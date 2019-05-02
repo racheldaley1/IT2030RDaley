@@ -7,6 +7,7 @@ using EventApplication.Models;
 
 namespace EventApplication.Controllers
 {
+    [Authorize]
     public class TicketsOrderedController : Controller
     {
         EventDB db = new EventDB();
