@@ -5,12 +5,10 @@
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <script src="~/Scripts/Apps/EventScripts.js"></script>
-}
-<h2>Find An Event</h2>
+<h2 id="findevent">Find an event near you!</h2>
 
 <div class="panel panel-default">
-    <div class="panel-heading">Find An Event</div>
-    <div class="panel-body">
+    <div class="panel-body" id="findeventbox">
         @using (Ajax.BeginForm("FindEvent", "Home",
         new AjaxOptions
         {
@@ -21,8 +19,8 @@
             UpdateTargetId = "searchresults",
         }))
         {
-            <input type="text" name="t" />
-            <input type="text" name="l" />
+            <input type="text" name="t" placeholder="Event or Event Type" id="searchbutton" />
+            <input type="text" name="l" placeholder="Location, City, or State" />
             <input type="submit" value="search" />
             <img id="ajax-loader"
                  src="@Url.Content("~/Content/Images/ajax-loader.gif")"

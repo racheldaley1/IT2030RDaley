@@ -4,8 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
+<h2>Organize an Event</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,14 +15,14 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.EventTypeId, "EventTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.EventTypeId, "Event Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" >
                 @Html.DropDownList("EventTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EventTypeId, "", new { @class = "text-danger" })
+                <div id="eventbtn">
+                    @Html.ActionLink("Create a new Event Type", "Create", "EventType", new { @class = "btn btn-primary" })
+                </div>
             </div>
-            <button id="btn">
-                @Html.ActionLink("Create a new Event Type", "Create", "EventType")
-            </button>
         </div>
 
         <div class="form-group">

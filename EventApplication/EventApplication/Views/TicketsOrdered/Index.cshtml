@@ -15,7 +15,7 @@
 <div id="update-message"></div>
 
 <div>
-    <table>
+    <table id="tableformat">
         <tr>
             <th>Title</th>
             <th>Date Ordered</th>
@@ -36,7 +36,7 @@
         }
     </table>
     <p class="button">
-        @Html.ActionLink("Back to Browse", "Index", "Event")
+        @Html.ActionLink("Back to Browse", "Index", "Home", new { @class = "btn btn-primary" })
     </p>
 </div>
 

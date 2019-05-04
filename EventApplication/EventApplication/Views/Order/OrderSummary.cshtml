@@ -4,12 +4,13 @@
 }
 
 <h2>Order Summary</h2>
+<p id="italics">@Html.DisplayNameFor(model => model.OrderNumber)</p>
 <p id="italics">@Html.DisplayFor(model => model.OrderNumber)</p>
 <p id="italics">@Html.DisplayFor(model => model.EventSelected.Title)</p>
 <br />
 <p id="details">Number of Tickets: <span id="bold">@Html.DisplayFor(model => model.TicketCount)</span></p>
 
-<button id="btn">
-    @Html.ActionLink("Go to my tickets", "Index", "TicketsOrdered")
-</button>
+<div>
+    @Html.ActionLink("Go to my tickets", "AddToOrder", "TicketsOrdered", new { id = Model.EventId }, new { @class = "btn btn-primary" })
+</div>
 

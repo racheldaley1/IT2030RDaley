@@ -8,6 +8,7 @@ namespace EventApplication.Models
 {
     public class EventType
     {
+        [Display(Name = "Event Type")]
         public virtual int EventTypeId { get; set; }
 
         [StringLength(50, ErrorMessage = "Event Type cannot exceed 50 characters")]

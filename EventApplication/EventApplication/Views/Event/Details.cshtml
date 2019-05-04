@@ -118,6 +118,5 @@
 </div>
 <p>
     @Html.ActionLink("Register", "/Details", "Order", new { id = Model.EventId }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Return Home", "Index", "Home", new { @class = "btn btn-primary" })
 </p>

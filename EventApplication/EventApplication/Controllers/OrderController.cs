@@ -14,8 +14,15 @@ namespace EventApplication.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Order events = db.Orders.Find(id);
-            return View(events);
+            Event selectedEvent = this.db.Events.Find(id);
+
+            Order order = new Order
+            {
+                EventId = id,
+                EventSelected = selectedEvent
+            };
+
+            return this.View(order);
 
             //Event events = db.Events.Find(id);
             //return View(events);
@@ -24,8 +31,15 @@ namespace EventApplication.Controllers
 
         public ActionResult OrderSummary(int id)
         {
-            Order orders = db.Orders.Find(id);
-            return View(orders);
+            Event selectedEvent = this.db.Events.Find(id);
+
+            Order order = new Order
+            {
+                EventId = id,
+                EventSelected = selectedEvent,
+            };
+
+            return this.View(order);
         }
         // GET: Order
         public ActionResult Index()

@@ -15,8 +15,14 @@ namespace EventApplication.Models
         public int EventId { get; set; }
         public virtual Event EventSelected { get; set; }
         public DateTime DateCreated { get; set; }
+
+        [Display(Name = "Ticket Count")]
         public int TicketCount { get; set; }
+
+        [Display(Name = "Order Status")]
         public string OrderStatus { get; set; }
+
+        [Display(Name = "Order Number")]
         public int OrderNumber { get; set; }
 
     }

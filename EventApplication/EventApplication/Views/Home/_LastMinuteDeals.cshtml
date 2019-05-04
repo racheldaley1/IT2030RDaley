@@ -2,10 +2,11 @@
 
 <h4 class="last-heading">Last Minute Deals</h4>
 
-<table class="table">
+<table id="lastminutetable">
     <tr>
         <th>Title</th>
         <th>Start Date</th>
+        <th>Start Time</th>
         <th>City</th>
         <th>State</th>
     </tr>
@@ -16,6 +17,7 @@
         <tr>
             <td>@Html.ActionLink(item.Title, "Details", "Event", new { id = item.EventId }, null)</td>
             <td>@item.StartDate.ToShortDateString()</td>
+            <td>@item.StartTime</td>
             <td>@item.LocationCity</td>
             <td>@item.LocationState</td>
         </tr>
